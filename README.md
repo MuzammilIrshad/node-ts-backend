@@ -1,3 +1,5 @@
+##Typescript Starter:
+
 1. Install Typescript "npm install typescript"
 2. tsc --init
 3. In tsconfig file, convert strict to "false"
