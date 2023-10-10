@@ -1,4 +1,4 @@
-##Typescript Starter:
+## Typescript Starter:
 
 1. Install Typescript "npm install typescript"
 2. tsc --init
