@@ -6,11 +6,6 @@ import path from 'path';
 
 const filePath = path.join(__dirname, '../../db/todos.json');
 
-
-function callBack(err: any, data: any){
-   return data;
-}
-
 router.get('/todos', (req:Request, res:Response) => {
    
    console.log(filePath)
