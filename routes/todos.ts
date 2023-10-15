@@ -1,10 +1,12 @@
-import express, { Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import fs from 'fs';
 const router = express.Router();
 import path from 'path';
 
 
 const filePath = path.join(__dirname, '../../db/todos.json');
+
+
 
 router.get('/todos', (req:Request, res:Response) => {
    
@@ -25,7 +27,13 @@ interface Todos{
    id?:String,
    title?:String
 }
-router.post('/addTodo', (req:Request, res:Response) => {
+
+function addTodoMiddleware(req:Request, res:Response, next:NextFunction){
+   console.log("Add Todo Middleware");
+   next()
+}
+
+router.post('/addTodo',addTodoMiddleware, (req:Request, res:Response) => {
   let todos: Todos[] = [];
    fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
