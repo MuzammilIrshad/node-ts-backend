@@ -49,6 +49,16 @@ router.post('/addTodo', (req:Request, res:Response) => {
 
 router.put('/todos/:todoId', (req:Request, res:Response) => {
  
+   
+const todoById = [{ name: "Ahmed", Description: "Hello world", id: "1643" }];
+ const updatedTodo = todoById?.map((item)=>{
+   if(item.id === req.params.todoId){
+      return {...item, ...req.body}
+   }else{
+      return item;
+   }
+ })    
+ console.log(updatedTodo);
    return res.status(203)
 });
 
